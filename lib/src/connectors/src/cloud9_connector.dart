@@ -4,5 +4,5 @@
 
 abstract class Cloud9Connector {
   /// Connects to the cloud storage service.
-  Future<void> connect();
+  Future<dynamic> connect();
 }
