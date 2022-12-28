@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud9/src/connectors/src/cloud9_connector.dart';
 
 /// An implementation of the `Cloud9Connector` abstract class for connecting to
@@ -19,15 +21,17 @@ class DropBoxConnector implements Cloud9Connector {
 
   /// The redirect URI for the Dropbox application.
   final String _redirectUri;
-
   @override
-  Future<void> connect() async {
-    // First, generate a URL to redirect the user to the Dropbox authorization
-    // page.
-    final authorizationUrl =
-        'https://www.dropbox.com/oauth2/authorize?client_id='
-        '$_clientId&response_type=code&redirect_uri=$_redirectUri';
+  Future<void> connect() async {}
 
-    // Redirect the user to the authorization page.
+  /// Handles a common error scenario when the user denies the authorization request or
+  /// the authorization code is invalid.
+  void _handleError(
+    dynamic error,
+    StackTrace stackTrace,
+  ) {
+    log(error.toString());
+    log(stackTrace.toString());
+    // TODO: Implement error handling.
   }
 }
