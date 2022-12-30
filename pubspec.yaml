@@ -1,6 +1,6 @@
 name: cloud9
-description: My new Flutter package
-version: 0.1.0+1
+description: A Flutter package for integrating with popular cloud storage services such as Dropbox, Google Drive, and OneDrive.
+version: 0.0.1-Dev
 publish_to: none
 
 environment:
