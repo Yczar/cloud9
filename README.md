@@ -4,71 +4,47 @@
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 [![License: MIT][license_badge]][license_link]
 
-My new Flutter package
+Cloud9 is a Flutter package that makes it easy to integrate with popular cloud storage services like Dropbox, Google Drive, and OneDrive. With Cloud9, you can easily store and retrieve files from the cloud within your Flutter app.
 
-## Installation 💻
+## Installation
 
-**❗ In order to start using Cloud9 you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
+To use Cloud9 in your Flutter project, add cloud9 as a dependency in your pubspec.yaml file.
 
-Add `cloud9` to your `pubspec.yaml`:
-
-```yaml
+```
 dependencies:
-  cloud9:
+cloud9: ^1.0.0
 ```
 
-Install it:
+Then run flutter packages get to install the package.
 
-```sh
-flutter packages get
+## Usage
+
+To use Cloud9, you will need to authenticate the user with their chosen cloud storage service. Cloud9 currently supports authentication with Dropbox, Google Drive, and OneDrive.
+
+Here is an example of how to authenticate with Dropbox using Cloud9:
+
+```
+import 'package:cloud9/cloud9.dart';
+
+final dropbox = DropboxService(accessToken);
+
+final result = await dropbox.authenticate();
+final accessToken = result['access_token'];
 ```
 
----
+Once the user is authenticated, you can use the Cloud9 service objects to perform various operations, such as listing files, uploading files, or downloading files.
 
-## Continuous Integration 🤖
+```
+final files = await dropbox.listFiles();
 
-Cloud9 comes with a built-in [GitHub Actions workflow][github_actions_link] powered by [Very Good Workflows][very_good_workflows_link] but you can also add your preferred CI/CD solution.
-
-Out of the box, on each pull request and push, the CI `formats`, `lints`, and `tests` the code. This ensures the code remains consistent and behaves correctly as you add functionality or make changes. The project uses [Very Good Analysis][very_good_analysis_link] for a strict set of analysis options used by our team. Code coverage is enforced using the [Very Good Workflows][very_good_coverage_link].
-
----
-
-## Running Tests 🧪
-
-For first time users, install the [very_good_cli][very_good_cli_link]:
-
-```sh
-dart pub global activate very_good_cli
+await dropbox.uploadFile('/example.txt', [104, 101, 108, 108, 111]);
+For more information on what is possible with Cloud9, see the API documentation.
 ```
 
-To run all unit tests:
+## Contributing
 
-```sh
-very_good test --coverage
-```
+We welcome contributions to Cloud9! If you have an idea for a new feature or have found a bug, please open an issue or submit a pull request.
 
-To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
+## License
 
-```sh
-# Generate Coverage Report
-genhtml coverage/lcov.info -o coverage/
-
-# Open Coverage Report
-open coverage/index.html
-```
-
-[flutter_install_link]: https://docs.flutter.dev/get-started/install
-[github_actions_link]: https://docs.github.com/en/actions/learn-github-actions
-[license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[license_link]: https://opensource.org/licenses/MIT
-[logo_black]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_black.png#gh-light-mode-only
-[logo_white]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_white.png#gh-dark-mode-only
-[mason_link]: https://github.com/felangel/mason
-[very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
-[very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
-[very_good_cli_link]: https://pub.dev/packages/very_good_cli
-[very_good_coverage_link]: https://github.com/marketplace/actions/very-good-coverage
-[very_good_ventures_link]: https://verygood.ventures
-[very_good_ventures_link_light]: https://verygood.ventures#gh-light-mode-only
-[very_good_ventures_link_dark]: https://verygood.ventures#gh-dark-mode-only
-[very_good_workflows_link]: https://github.com/VeryGoodOpenSource/very_good_workflows
+Cloud9 is released under the MIT License.
