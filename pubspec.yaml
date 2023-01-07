@@ -8,9 +8,13 @@ environment:
   flutter: ">=3.3.0"
 
 dependencies:
+  dio: ^4.0.6
   flutter:
     sdk: flutter
+  flutter_webview_plugin: ^0.4.0
   http: ^0.13.5
+  oauth2: ^2.0.1
+  url_launcher: ^6.1.7
 
 dev_dependencies:
   flutter_test:
