@@ -10,7 +10,7 @@ Cloud9 is a Flutter package that makes it easy to integrate with popular cloud s
 
 To use Cloud9 in your Flutter project, add cloud9 as a dependency in your pubspec.yaml file.
 
-```
+```yaml
 dependencies:
 cloud9: ^1.0.0
 ```
@@ -23,7 +23,7 @@ To use Cloud9, you will need to authenticate the user with their chosen cloud st
 
 Here is an example of how to authenticate with Dropbox using Cloud9:
 
-```
+```dart
 import 'package:cloud9/cloud9.dart';
 
 final dropbox = DropboxService(accessToken);
@@ -34,7 +34,7 @@ final accessToken = result['access_token'];
 
 Once the user is authenticated, you can use the Cloud9 service objects to perform various operations, such as listing files, uploading files, or downloading files.
 
-```
+```dart
 final files = await dropbox.listFiles();
 
 await dropbox.uploadFile('/example.txt', [104, 101, 108, 108, 111]);
