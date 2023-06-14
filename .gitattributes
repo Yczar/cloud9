@@ -2,4 +2,5 @@
 *.scss linguist-detectable=false
 *.html linguist-detectable=false
 *.cpp linguist-detectable=false
+*.dart linguist-detectable=true
 *.js linguist-detectable=false
